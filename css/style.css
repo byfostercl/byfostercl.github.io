@@ -3617,3 +3617,730 @@ de espacio útil.
     }
 
 }
+/* =========================================================
+   PROJECT CASE STUDIES
+========================================================= */
+
+.projects-showcase {
+    display: grid;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CASE CARD
+========================================================= */
+
+.case-card {
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 24px 70px
+        rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.case-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255, 255, 255, 0.17);
+}
+
+
+/* =========================================================
+   MAIN CASE
+========================================================= */
+
+.case-card-main {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(310px, 0.75fr);
+
+    min-height: 620px;
+}
+
+
+.case-card-main
+.case-visual {
+    border-right:
+        1px solid
+        var(--border);
+}
+
+
+/* =========================================================
+   SECONDARY CASES
+========================================================= */
+
+.project-secondary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.case-card-secondary {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   VISUAL
+========================================================= */
+
+.case-visual {
+    position: relative;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        30px 24px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 12% 25%,
+            rgba(0, 201, 255, 0.14),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 72%,
+            rgba(170, 64, 255, 0.17),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(9, 17, 34, 0.96),
+            rgba(18, 14, 36, 0.95)
+        );
+}
+
+
+.case-visual::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        34px 34px;
+
+    pointer-events: none;
+}
+
+
+.case-visual-main {
+    min-height: 620px;
+}
+
+
+.case-card-secondary
+.case-visual {
+    min-height: 365px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+/* =========================================================
+   DIAGRAM
+========================================================= */
+
+.project-diagram {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    height: auto;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   DIAGRAM LINES
+========================================================= */
+
+.diagram-line {
+    fill: none;
+
+    stroke:
+        rgba(115, 118, 255, 0.52);
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-dasharray:
+        7 10;
+
+    opacity: 0.64;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(111, 112, 255, 0.22)
+        );
+
+    animation:
+        project-line-flow
+        14s
+        linear
+        infinite;
+}
+
+
+.diagram-line-primary {
+    stroke-width: 2.8;
+
+    opacity: 0.88;
+}
+
+
+.diagram-line-secondary {
+    opacity: 0.42;
+
+    stroke-width: 1.7;
+}
+
+
+.diagram-line-return {
+    opacity: 0.3;
+
+    stroke-dasharray:
+        4 12;
+}
+
+
+@keyframes project-line-flow {
+
+    to {
+        stroke-dashoffset: -160;
+    }
+
+}
+
+
+/* =========================================================
+   DIAGRAM NODE
+========================================================= */
+
+.diagram-node rect {
+    fill:
+        rgba(17, 23, 45, 0.88);
+
+    stroke:
+        rgba(255, 255, 255, 0.13);
+
+    stroke-width: 1;
+
+    filter:
+        drop-shadow(
+            0 14px 24px
+            rgba(0, 0, 0, 0.22)
+        );
+}
+
+
+.diagram-node-core rect {
+    stroke:
+        rgba(116, 183, 255, 0.42);
+
+    stroke-width: 1.5;
+
+    filter:
+        drop-shadow(
+            0 0 16px
+            rgba(82, 138, 255, 0.14)
+        )
+        drop-shadow(
+            0 18px 28px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+.diagram-node-small rect {
+    fill:
+        rgba(20, 23, 44, 0.80);
+}
+
+
+/* =========================================================
+   SVG TEXT
+========================================================= */
+
+.diagram-node-title {
+    fill: #f5f6fb;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.diagram-node-title-small {
+    fill: #f3f4fa;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.diagram-node-caption {
+    fill: #8891aa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 11px;
+}
+
+
+.diagram-node-caption-light {
+    fill: #bac1d2;
+}
+
+
+.diagram-core-kicker {
+    fill: #9ba7c5;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+
+.diagram-core-title {
+    fill: #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CORE ORB
+========================================================= */
+
+.diagram-core-orb {
+    fill:
+        #75dfff;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(72, 211, 255, 0.8)
+        )
+        drop-shadow(
+            0 0 18px
+            rgba(137, 91, 255, 0.5)
+        );
+
+    animation:
+        diagram-core-pulse
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes diagram-core-pulse {
+
+    0%,
+    100% {
+        opacity: 0.72;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.diagram-particle {
+    filter:
+        drop-shadow(
+            0 0 7px
+            currentColor
+        );
+}
+
+
+.diagram-particle-cyan {
+    fill: #55ddff;
+    color: #55ddff;
+}
+
+
+.diagram-particle-purple {
+    fill: #a16dff;
+    color: #a16dff;
+}
+
+
+.diagram-particle-magenta {
+    fill: #ee67d8;
+    color: #ee67d8;
+}
+
+
+/* =========================================================
+   DIAGRAM CHIPS
+========================================================= */
+
+.diagram-chip rect {
+    fill:
+        rgba(255, 255, 255, 0.035);
+
+    stroke:
+        rgba(255, 255, 255, 0.10);
+
+    stroke-width: 1;
+}
+
+
+.diagram-chip text {
+    fill: #aeb5c9;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+.diagram-chip-title {
+    fill: #e6e8ef !important;
+
+    font-family:
+        "Poppins",
+        sans-serif !important;
+
+    font-size: 12px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.case-copy {
+    padding:
+        34px;
+}
+
+
+.case-card-main
+.case-copy {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding:
+        44px 38px;
+}
+
+
+.case-heading {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.case-kicker {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #8894b3;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.case-heading h3 {
+    margin-bottom: 5px;
+
+    font-size:
+        clamp(
+            1.65rem,
+            3vw,
+            2.4rem
+        );
+
+    text-transform: none;
+}
+
+
+.case-heading h4 {
+    margin-bottom: 0;
+
+    color: #c0c5d4;
+
+    font-size: 0.94rem;
+
+    font-weight: 500;
+
+    letter-spacing: -0.01em;
+}
+
+
+.case-number {
+    flex-shrink: 0;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 0.78rem;
+
+    color: #696f84;
+}
+
+
+.case-copy > p {
+    margin-bottom: 0;
+
+    font-size: 0.88rem;
+}
+
+
+.case-note {
+    margin-top: 18px !important;
+
+    padding:
+        13px 15px;
+
+    border-left:
+        2px solid
+        rgba(114, 139, 255, 0.52);
+
+    border-radius:
+        0 10px 10px 0;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        #929aaf !important;
+
+    font-size:
+        0.76rem !important;
+}
+
+
+/* =========================================================
+   HOVER — DIAGRAM
+========================================================= */
+
+.case-card:hover
+.diagram-line {
+    opacity: 0.85;
+}
+
+
+.case-card:hover
+.diagram-node-core rect {
+    stroke:
+        rgba(115, 195, 255, 0.58);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 1050px
+) {
+
+    .case-card-main {
+        grid-template-columns:
+            1fr;
+
+        min-height: 0;
+    }
+
+
+    .case-card-main
+    .case-visual {
+        border-right: 0;
+
+        border-bottom:
+            1px solid
+            var(--border);
+    }
+
+
+    .case-visual-main {
+        min-height: 500px;
+    }
+
+
+    .project-secondary-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .case-card-secondary
+    .case-visual {
+        min-height: 420px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 760px
+) {
+
+    .case-visual,
+    .case-visual-main {
+        min-height: auto;
+
+        padding:
+            20px 10px;
+    }
+
+
+    .case-card-secondary
+    .case-visual {
+        min-height: auto;
+    }
+
+
+    .case-copy,
+    .case-card-main
+    .case-copy {
+        padding:
+            26px 22px;
+    }
+
+
+    .case-heading h3 {
+        font-size:
+            1.65rem;
+    }
+
+
+    .project-diagram {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .diagram-line,
+    .diagram-core-orb {
+        animation:
+            none !important;
+    }
+
+
+    .diagram-particle {
+        display: none;
+    }
+
+}
+
