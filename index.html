@@ -89,14 +89,410 @@
 
             </div>
 
+<div class="hero-visual">
 
-            <div class="hero-visual">
+    <div
+        class="hero-network"
+        aria-label="Red de personas, procesos, datos, sistemas, automatización y resultados"
+    >
 
-                <div class="portrait-placeholder">
-                    <span>Fotografía / Visual</span>
-                </div>
+        <!-- =============================================
+             LÍNEAS DE CONEXIÓN
+        ============================================== -->
+
+        <svg
+            class="network-lines"
+            viewBox="0 0 700 620"
+            aria-hidden="true"
+        >
+
+            <defs>
+
+                <linearGradient
+                    id="network-gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                >
+                    <stop
+                        offset="0%"
+                        stop-color="#36d6ff"
+                    />
+
+                    <stop
+                        offset="50%"
+                        stop-color="#8c5cff"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#e454c7"
+                    />
+
+                </linearGradient>
+
+            </defs>
+
+
+            <!-- PERSONAS -->
+
+            <path
+                id="path-personas"
+                class="network-path"
+                data-link="personas"
+                d="M 350 310
+                   C 300 250,
+                     245 190,
+                     175 125"
+            />
+
+
+            <!-- PROCESOS -->
+
+            <path
+                id="path-procesos"
+                class="network-path"
+                data-link="procesos"
+                d="M 350 310
+                   C 405 245,
+                     470 185,
+                     545 125"
+            />
+
+
+            <!-- DATOS -->
+
+            <path
+                id="path-datos"
+                class="network-path"
+                data-link="datos"
+                d="M 350 310
+                   C 280 305,
+                     210 300,
+                     120 310"
+            />
+
+
+            <!-- SISTEMAS -->
+
+            <path
+                id="path-sistemas"
+                class="network-path"
+                data-link="sistemas"
+                d="M 350 310
+                   C 430 305,
+                     505 300,
+                     590 310"
+            />
+
+
+            <!-- AUTOMATIZACIÓN -->
+
+            <path
+                id="path-automatizacion"
+                class="network-path"
+                data-link="automatizacion"
+                d="M 350 310
+                   C 300 390,
+                     245 450,
+                     175 505"
+            />
+
+
+            <!-- RESULTADOS -->
+
+            <path
+                id="path-resultados"
+                class="network-path"
+                data-link="resultados"
+                d="M 350 310
+                   C 405 390,
+                     470 450,
+                     545 505"
+            />
+
+
+            <!-- PARTÍCULAS -->
+
+            <circle
+                class="network-particle particle-cyan"
+                r="4"
+            >
+                <animateMotion
+                    dur="7s"
+                    repeatCount="indefinite"
+                >
+                    <mpath href="#path-personas" />
+                </animateMotion>
+            </circle>
+
+
+            <circle
+                class="network-particle particle-purple"
+                r="4"
+            >
+                <animateMotion
+                    dur="9s"
+                    repeatCount="indefinite"
+                    begin="-3s"
+                >
+                    <mpath href="#path-procesos" />
+                </animateMotion>
+            </circle>
+
+
+            <circle
+                class="network-particle particle-cyan"
+                r="3"
+            >
+                <animateMotion
+                    dur="8s"
+                    repeatCount="indefinite"
+                    begin="-2s"
+                >
+                    <mpath href="#path-datos" />
+                </animateMotion>
+            </circle>
+
+
+            <circle
+                class="network-particle particle-purple"
+                r="3"
+            >
+                <animateMotion
+                    dur="10s"
+                    repeatCount="indefinite"
+                    begin="-5s"
+                >
+                    <mpath href="#path-sistemas" />
+                </animateMotion>
+            </circle>
+
+
+            <circle
+                class="network-particle particle-magenta"
+                r="4"
+            >
+                <animateMotion
+                    dur="8.5s"
+                    repeatCount="indefinite"
+                    begin="-4s"
+                >
+                    <mpath href="#path-automatizacion" />
+                </animateMotion>
+            </circle>
+
+
+            <circle
+                class="network-particle particle-cyan"
+                r="4"
+            >
+                <animateMotion
+                    dur="9.5s"
+                    repeatCount="indefinite"
+                    begin="-1s"
+                >
+                    <mpath href="#path-resultados" />
+                </animateMotion>
+            </circle>
+
+        </svg>
+
+
+        <!-- =============================================
+             NÚCLEO CENTRAL
+        ============================================== -->
+
+        <div
+            class="network-core"
+            aria-hidden="true"
+        >
+
+            <div class="core-orbit core-orbit-1"></div>
+
+            <div class="core-orbit core-orbit-2"></div>
+
+            <div class="core-orbit core-orbit-3"></div>
+
+            <div class="core-glow"></div>
+
+            <div class="core-center"></div>
+
+        </div>
+
+
+        <!-- =============================================
+             PERSONAS
+        ============================================== -->
+
+        <article
+            class="network-node node-personas is-active"
+            data-node="personas"
+        >
+
+            <div class="network-node-icon">
+                ◉
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Personas
+                </strong>
+
+                <span>
+                    Equipos, clientes y usuarios
+                </span>
 
             </div>
+
+        </article>
+
+
+        <!-- =============================================
+             PROCESOS
+        ============================================== -->
+
+        <article
+            class="network-node node-procesos"
+            data-node="procesos"
+        >
+
+            <div class="network-node-icon">
+                ⚙
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Procesos
+                </strong>
+
+                <span>
+                    Eficiencia y claridad
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =============================================
+             DATOS
+        ============================================== -->
+
+        <article
+            class="network-node node-datos"
+            data-node="datos"
+        >
+
+            <div class="network-node-icon">
+                ▥
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Datos
+                </strong>
+
+                <span>
+                    Información que impulsa decisiones
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =============================================
+             SISTEMAS
+        ============================================== -->
+
+        <article
+            class="network-node node-sistemas"
+            data-node="sistemas"
+        >
+
+            <div class="network-node-icon">
+                ◫
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Sistemas
+                </strong>
+
+                <span>
+                    Integración y escalabilidad
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =============================================
+             AUTOMATIZACIÓN
+        ============================================== -->
+
+        <article
+            class="network-node node-automatizacion"
+            data-node="automatizacion"
+        >
+
+            <div class="network-node-icon">
+                ϟ
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Automatización
+                </strong>
+
+                <span>
+                    Menos tareas, más impacto
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =============================================
+             RESULTADOS
+        ============================================== -->
+
+        <article
+            class="network-node node-resultados"
+            data-node="resultados"
+        >
+
+            <div class="network-node-icon">
+                ↗
+            </div>
+
+            <div class="network-node-copy">
+
+                <strong>
+                    Resultados
+                </strong>
+
+                <span>
+                    Negocios más inteligentes
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</div>
+
 
 
             <div class="hero-info">
