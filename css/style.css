@@ -1989,3 +1989,1092 @@ main,
     }
 
 }
+
+/* =========================================================
+   HERO NETWORK
+   Animated neural-style diagram
+========================================================= */
+
+.hero-visual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   NETWORK CONTAINER
+========================================================= */
+
+.hero-network {
+    position: relative;
+
+    width: 100%;
+    max-width: 640px;
+
+    aspect-ratio: 1.08 / 1;
+
+    isolation: isolate;
+}
+
+
+/* grid tecnológico interior */
+
+.hero-network::before {
+    content: "";
+
+    position: absolute;
+    inset: 3%;
+
+    border-radius: 32px;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        32px 32px;
+
+    mask-image:
+        radial-gradient(
+            circle,
+            black 35%,
+            transparent 78%
+        );
+
+    opacity: 0.75;
+
+    pointer-events: none;
+
+    z-index: -3;
+}
+
+
+/* halo general */
+
+.hero-network::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 15%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(78, 112, 255, 0.16),
+            rgba(143, 75, 255, 0.10) 40%,
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   SVG CONNECTIONS
+========================================================= */
+
+.network-lines {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.network-path {
+    fill: none;
+
+    stroke:
+        url(#network-gradient);
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-dasharray:
+        7 12;
+
+    opacity: 0.35;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(119, 101, 255, 0.35)
+        );
+
+    transition:
+        opacity 0.8s ease,
+        stroke-width 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+/* movimiento constante de las líneas */
+
+.network-path {
+    animation:
+        network-line-flow
+        12s
+        linear
+        infinite;
+}
+
+
+@keyframes network-line-flow {
+
+    to {
+        stroke-dashoffset: -120;
+    }
+
+}
+
+
+/* conexión activa */
+
+.network-path.is-active {
+    opacity: 1;
+
+    stroke-width: 3;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(67, 199, 255, 0.85)
+        )
+        drop-shadow(
+            0 0 14px
+            rgba(164, 83, 255, 0.55)
+        );
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.network-particle {
+    opacity: 0.85;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            currentColor
+        );
+}
+
+
+.particle-cyan {
+    fill: #54ddff;
+    color: #54ddff;
+}
+
+
+.particle-purple {
+    fill: #9c72ff;
+    color: #9c72ff;
+}
+
+
+.particle-magenta {
+    fill: #ee63d5;
+    color: #ee63d5;
+}
+
+
+/* =========================================================
+   CENTRAL CORE
+========================================================= */
+
+.network-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 118px;
+    height: 118px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: grid;
+    place-items: center;
+
+    z-index: 4;
+}
+
+
+.core-center {
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff 0%,
+            #92ddff 14%,
+            #627cff 38%,
+            #8c5cff 62%,
+            rgba(140, 92, 255, 0.12) 75%
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(75, 201, 255, 0.75),
+
+        0 0 50px
+        rgba(140, 92, 255, 0.62),
+
+        0 0 90px
+        rgba(227, 72, 202, 0.24);
+
+    animation:
+        core-breathe
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.core-glow {
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77, 195, 255, 0.34),
+            rgba(126, 80, 255, 0.16) 52%,
+            transparent 72%
+        );
+
+    filter: blur(8px);
+
+    animation:
+        core-glow
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+/* anillos */
+
+.core-orbit {
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(
+            108,
+            169,
+            255,
+            0.22
+        );
+
+    border-radius: 50%;
+}
+
+
+.core-orbit-1 {
+    width: 78px;
+    height: 78px;
+
+    animation:
+        core-orbit-spin
+        12s
+        linear
+        infinite;
+}
+
+
+.core-orbit-2 {
+    width: 102px;
+    height: 66px;
+
+    transform:
+        rotate(30deg);
+
+    border-color:
+        rgba(
+            170,
+            94,
+            255,
+            0.24
+        );
+
+    animation:
+        core-orbit-spin-reverse
+        15s
+        linear
+        infinite;
+}
+
+
+.core-orbit-3 {
+    width: 116px;
+    height: 46px;
+
+    transform:
+        rotate(-24deg);
+
+    border-color:
+        rgba(
+            62,
+            211,
+            255,
+            0.18
+        );
+
+    animation:
+        core-orbit-spin
+        18s
+        linear
+        infinite;
+}
+
+
+@keyframes core-breathe {
+
+    0%,
+    100% {
+        transform:
+            scale(0.94);
+
+        opacity: 0.84;
+    }
+
+    50% {
+        transform:
+            scale(1.08);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes core-glow {
+
+    0%,
+    100% {
+        transform:
+            scale(0.9);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform:
+            scale(1.2);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes core-orbit-spin {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes core-orbit-spin-reverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+
+}
+
+
+/* reacción al cambio de tarjeta */
+
+.network-core.is-reacting
+.core-center {
+
+    animation:
+        core-react
+        1.2s
+        ease-out,
+        core-breathe
+        4s
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes core-react {
+
+    0% {
+        transform:
+            scale(0.9);
+    }
+
+    40% {
+        transform:
+            scale(1.35);
+    }
+
+    100% {
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   NETWORK NODE BASE
+========================================================= */
+
+.network-node {
+    position: absolute;
+
+    width:
+        clamp(
+            145px,
+            31%,
+            190px
+        );
+
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 24, 48, 0.88),
+            rgba(16, 15, 35, 0.72)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
+
+    opacity: 0.63;
+
+    filter:
+        saturate(0.78);
+
+    z-index: 3;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        )
+        scale(0.94);
+
+    transition:
+        transform
+        1.15s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        opacity
+        0.85s
+        ease,
+
+        filter
+        0.85s
+        ease,
+
+        border-color
+        0.85s
+        ease,
+
+        box-shadow
+        0.85s
+        ease;
+}
+
+
+/* respiración ligera */
+
+.network-node:not(.is-active) {
+    animation:
+        node-float
+        7s
+        ease-in-out
+        infinite;
+}
+
+
+.network-node:nth-of-type(even) {
+    animation-delay:
+        -2.5s;
+}
+
+
+@keyframes node-float {
+
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -5px;
+    }
+
+}
+
+
+/* =========================================================
+   NODE ICON
+========================================================= */
+
+.network-node-icon {
+    width: 38px;
+    height: 38px;
+
+    flex:
+        0 0 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70, 161, 255, 0.34),
+            rgba(139, 77, 255, 0.30)
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.11
+        );
+
+    box-shadow:
+        inset
+        0 0 18px
+        rgba(
+            118,
+            113,
+            255,
+            0.12
+        );
+}
+
+
+/* =========================================================
+   NODE TEXT
+========================================================= */
+
+.network-node-copy {
+    min-width: 0;
+}
+
+
+.network-node-copy strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 0.83rem;
+
+    letter-spacing:
+        -0.01em;
+}
+
+
+.network-node-copy span {
+    display: block;
+
+    font-size: 0.67rem;
+
+    line-height: 1.35;
+
+    color:
+        #929ab0;
+}
+
+
+/* =========================================================
+   NODE POSITIONS
+========================================================= */
+
+
+/* PERSONAS */
+
+.node-personas {
+    left: 3%;
+    top: 5%;
+
+    --active-x: 90px;
+    --active-y: 72px;
+}
+
+
+/* PROCESOS */
+
+.node-procesos {
+    right: 1%;
+    top: 5%;
+
+    --active-x: -90px;
+    --active-y: 72px;
+}
+
+
+/* DATOS */
+
+.node-datos {
+    left: -2%;
+    top: 42%;
+
+    --active-x: 112px;
+    --active-y: -4px;
+}
+
+
+/* SISTEMAS */
+
+.node-sistemas {
+    right: -2%;
+    top: 42%;
+
+    --active-x: -112px;
+    --active-y: -4px;
+}
+
+
+/* AUTOMATIZACIÓN */
+
+.node-automatizacion {
+    left: 4%;
+    bottom: 4%;
+
+    --active-x: 90px;
+    --active-y: -78px;
+}
+
+
+/* RESULTADOS */
+
+.node-resultados {
+    right: 2%;
+    bottom: 4%;
+
+    --active-x: -90px;
+    --active-y: -78px;
+}
+
+
+/* =========================================================
+   ACTIVE NODE
+========================================================= */
+
+.network-node.is-active {
+    opacity: 1;
+
+    filter:
+        saturate(1.25);
+
+    transform:
+        translate3d(
+            var(--active-x),
+            var(--active-y),
+            0
+        )
+        scale(1.09);
+
+    border-color:
+        rgba(
+            123,
+            176,
+            255,
+            0.46
+        );
+
+    box-shadow:
+        0 22px 55px
+        rgba(
+            0,
+            0,
+            0,
+            0.34
+        ),
+
+        0 0 24px
+        rgba(
+            83,
+            173,
+            255,
+            0.14
+        ),
+
+        0 0 45px
+        rgba(
+            157,
+            84,
+            255,
+            0.12
+        );
+
+    z-index: 8;
+
+    animation: none;
+}
+
+
+.network-node.is-active
+.network-node-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(53, 207, 255, 0.76),
+            rgba(128, 86, 255, 0.70),
+            rgba(225, 78, 211, 0.60)
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(
+            67,
+            202,
+            255,
+            0.38
+        ),
+
+        0 0 32px
+        rgba(
+            147,
+            81,
+            255,
+            0.30
+        );
+}
+
+
+.network-node.is-active
+.network-node-copy span {
+    color:
+        #c1c7d6;
+}
+
+
+/* =========================================================
+   HERO NETWORK — TABLET
+========================================================= */
+
+@media (
+    max-width: 1050px
+) {
+
+    .hero-network {
+        max-width:
+            540px;
+    }
+
+    .network-node {
+        width:
+            clamp(
+                135px,
+                34%,
+                165px
+            );
+    }
+
+    .node-personas {
+        --active-x: 65px;
+        --active-y: 62px;
+    }
+
+    .node-procesos {
+        --active-x: -65px;
+        --active-y: 62px;
+    }
+
+    .node-datos {
+        --active-x: 78px;
+    }
+
+    .node-sistemas {
+        --active-x: -78px;
+    }
+
+    .node-automatizacion {
+        --active-x: 65px;
+        --active-y: -62px;
+    }
+
+    .node-resultados {
+        --active-x: -65px;
+        --active-y: -62px;
+    }
+
+}
+
+
+/* =========================================================
+   HERO NETWORK — MOBILE
+========================================================= */
+
+@media (
+    max-width: 760px
+) {
+
+    .hero-network {
+        width: 100%;
+        max-width: 540px;
+
+        margin-inline: auto;
+
+        aspect-ratio:
+            1 / 1.05;
+    }
+
+    .network-node {
+        width:
+            145px;
+
+        min-height:
+            68px;
+
+        padding:
+            10px 11px;
+
+        gap: 9px;
+    }
+
+    .network-node-icon {
+        width: 32px;
+        height: 32px;
+
+        flex-basis:
+            32px;
+
+        border-radius:
+            10px;
+    }
+
+    .network-node-copy strong {
+        font-size:
+            0.75rem;
+    }
+
+    .network-node-copy span {
+        font-size:
+            0.59rem;
+    }
+
+    .network-core {
+        width: 90px;
+        height: 90px;
+    }
+
+    .core-center {
+        width: 42px;
+        height: 42px;
+    }
+
+    .core-orbit-1 {
+        width: 64px;
+        height: 64px;
+    }
+
+    .core-orbit-2 {
+        width: 80px;
+        height: 52px;
+    }
+
+    .core-orbit-3 {
+        width: 90px;
+        height: 36px;
+    }
+
+    .node-personas {
+        left: 0%;
+
+        --active-x: 50px;
+        --active-y: 62px;
+    }
+
+    .node-procesos {
+        right: 0%;
+
+        --active-x: -50px;
+        --active-y: 62px;
+    }
+
+    .node-datos {
+        left: -2%;
+
+        --active-x: 62px;
+    }
+
+    .node-sistemas {
+        right: -2%;
+
+        --active-x: -62px;
+    }
+
+    .node-automatizacion {
+        left: 1%;
+
+        --active-x: 52px;
+        --active-y: -60px;
+    }
+
+    .node-resultados {
+        right: 1%;
+
+        --active-x: -52px;
+        --active-y: -60px;
+    }
+
+}
+
+
+/* =========================================================
+   HERO NETWORK — SMALL MOBILE
+========================================================= */
+
+@media (
+    max-width: 470px
+) {
+
+    .hero-network {
+        transform:
+            scale(0.94);
+
+        transform-origin:
+            center;
+    }
+
+    .network-node {
+        width:
+            128px;
+
+        min-height:
+            62px;
+    }
+
+    .network-node-copy span {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .network-node,
+    .network-core *,
+    .network-path {
+        animation:
+            none !important;
+    }
+
+}
