@@ -3078,3 +3078,542 @@ main,
     }
 
 }
+
+/* =========================================================
+   HERO NETWORK V2.1
+   Organic movement + improved node content
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   TARJETA EXTERIOR
+   Se encarga del desplazamiento hacia el núcleo
+--------------------------------------------------------- */
+
+.network-node {
+
+    width:
+        clamp(
+            160px,
+            33%,
+            190px
+        );
+
+    min-height: 82px;
+
+    padding: 0;
+
+    overflow: visible;
+
+    opacity: 0.72;
+
+    transform-origin: center;
+
+    will-change:
+        transform,
+        opacity,
+        filter;
+
+    /*
+    Movimiento más lento.
+
+    Antes: 1.15s
+    Ahora: 1.9s
+    */
+
+    transition:
+        transform
+        1.9s
+        cubic-bezier(
+            0.45,
+            0.05,
+            0.18,
+            1
+        ),
+
+        opacity
+        1.1s
+        ease,
+
+        filter
+        1.1s
+        ease,
+
+        border-color
+        1.1s
+        ease,
+
+        box-shadow
+        1.1s
+        ease;
+}
+
+
+/*
+Desactivamos la antigua animación
+por margin-top.
+*/
+
+.network-node:not(.is-active) {
+    animation: none;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO INTERIOR
+   Este elemento "flota" independientemente
+--------------------------------------------------------- */
+
+.network-node-inner {
+
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 13px 14px;
+
+    border-radius: inherit;
+
+    will-change: transform;
+
+    animation:
+        network-node-drift
+        6.5s
+        ease-in-out
+        infinite;
+}
+
+
+/*
+Cada tarjeta comienza en un punto
+ligeramente distinto del ciclo.
+*/
+
+.node-personas
+.network-node-inner {
+    animation-delay: -0.8s;
+}
+
+.node-procesos
+.network-node-inner {
+    animation-delay: -2.1s;
+}
+
+.node-datos
+.network-node-inner {
+    animation-delay: -3.6s;
+}
+
+.node-sistemas
+.network-node-inner {
+    animation-delay: -1.5s;
+}
+
+.node-automatizacion
+.network-node-inner {
+    animation-delay: -4.3s;
+}
+
+.node-resultados
+.network-node-inner {
+    animation-delay: -2.8s;
+}
+
+
+/* ---------------------------------------------------------
+   FLOTACIÓN ORGÁNICA
+--------------------------------------------------------- */
+
+@keyframes network-node-drift {
+
+    0% {
+        transform:
+            translate3d(
+                0,
+                2px,
+                0
+            )
+            rotate(-0.25deg);
+    }
+
+    25% {
+        transform:
+            translate3d(
+                2px,
+                -3px,
+                0
+            )
+            rotate(0.15deg);
+    }
+
+    50% {
+        transform:
+            translate3d(
+                -1px,
+                -6px,
+                0
+            )
+            rotate(0.3deg);
+    }
+
+    75% {
+        transform:
+            translate3d(
+                -3px,
+                -1px,
+                0
+            )
+            rotate(-0.1deg);
+    }
+
+    100% {
+        transform:
+            translate3d(
+                0,
+                2px,
+                0
+            )
+            rotate(-0.25deg);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   NODO ACTIVO
+--------------------------------------------------------- */
+
+.network-node.is-active {
+
+    opacity: 1;
+
+    filter:
+        saturate(1.22);
+
+    /*
+    Reducimos un poco el aumento de tamaño.
+    Antes: 1.09
+    */
+
+    transform:
+        translate3d(
+            var(--active-x),
+            var(--active-y),
+            0
+        )
+        scale(1.055);
+
+    z-index: 8;
+}
+
+
+/*
+El nodo activo sigue respirando.
+No se congela cuando se acerca.
+*/
+
+.network-node.is-active
+.network-node-inner {
+
+    animation:
+        network-node-active-drift
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes network-node-active-drift {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(
+                0,
+                -5px,
+                0
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   DISTANCIA HACIA EL NÚCLEO
+   Más contenida y natural
+========================================================= */
+
+.node-personas {
+
+    --active-x: 70px;
+    --active-y: 58px;
+
+}
+
+
+.node-procesos {
+
+    --active-x: -70px;
+    --active-y: 58px;
+
+}
+
+
+.node-datos {
+
+    --active-x: 82px;
+    --active-y: -2px;
+
+}
+
+
+.node-sistemas {
+
+    --active-x: -82px;
+    --active-y: -2px;
+
+}
+
+
+.node-automatizacion {
+
+    --active-x: 70px;
+    --active-y: -62px;
+
+}
+
+
+.node-resultados {
+
+    --active-x: -70px;
+    --active-y: -62px;
+
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.network-node-copy {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.network-node-copy strong {
+
+    display: block;
+
+    max-width: 100%;
+
+    margin-bottom: 4px;
+
+    font-size:
+        clamp(
+            0.72rem,
+            1.15vw,
+            0.81rem
+        );
+
+    line-height: 1.2;
+
+    overflow-wrap: break-word;
+
+    word-break: normal;
+
+    hyphens: auto;
+
+}
+
+
+.network-node-copy span {
+
+    display: block;
+
+    max-width: 100%;
+
+    font-size:
+        clamp(
+            0.59rem,
+            1vw,
+            0.67rem
+        );
+
+    line-height: 1.32;
+
+    overflow-wrap: break-word;
+
+    word-break: normal;
+
+    hyphens: auto;
+
+}
+
+
+/*
+Automatización es nuestro título
+más largo. Le damos algo más
+de espacio útil.
+*/
+
+.node-automatizacion {
+
+    width:
+        clamp(
+            168px,
+            34%,
+            195px
+        );
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 1050px
+) {
+
+    .network-node {
+
+        width:
+            clamp(
+                150px,
+                35%,
+                175px
+            );
+
+    }
+
+
+    .node-automatizacion {
+
+        width:
+            clamp(
+                158px,
+                36%,
+                182px
+            );
+
+    }
+
+
+    .node-personas {
+
+        --active-x: 52px;
+        --active-y: 48px;
+
+    }
+
+
+    .node-procesos {
+
+        --active-x: -52px;
+        --active-y: 48px;
+
+    }
+
+
+    .node-datos {
+
+        --active-x: 62px;
+
+    }
+
+
+    .node-sistemas {
+
+        --active-x: -62px;
+
+    }
+
+
+    .node-automatizacion {
+
+        --active-x: 52px;
+        --active-y: -50px;
+
+    }
+
+
+    .node-resultados {
+
+        --active-x: -52px;
+        --active-y: -50px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 760px
+) {
+
+    .network-node {
+
+        width: 148px;
+
+        min-height: 70px;
+
+    }
+
+
+    .node-automatizacion {
+
+        width: 158px;
+
+    }
+
+
+    .network-node-inner {
+
+        padding:
+            10px 11px;
+
+        gap: 8px;
+
+    }
+
+
+    .network-node-copy strong {
+
+        font-size: 0.70rem;
+
+    }
+
+
+    .network-node-copy span {
+
+        font-size: 0.57rem;
+
+    }
+
+}
