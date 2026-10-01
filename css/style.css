@@ -4755,6 +4755,7 @@ de espacio útil.
 
 /* =========================================================
    SVG ICONS
+   Ahora se cargan directamente como <img>
 ========================================================= */
 
 .brand-icon,
@@ -4766,8 +4767,8 @@ de espacio útil.
     object-fit: contain;
 
     /*
-    Simple Icons vienen negros.
-    Los convertimos visualmente a blanco.
+    Los SVG de Simple Icons vienen normalmente
+    en negro. Los convertimos visualmente a blanco.
     */
 
     filter:
@@ -4780,6 +4781,38 @@ de espacio útil.
         opacity 0.3s ease,
         transform 0.3s ease,
         filter 0.3s ease;
+}
+
+
+/* Iconos del carrusel */
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Efecto del icono al pasar sobre tecnología */
+
+.tech-item:hover
+.brand-icon {
+    opacity: 1;
+
+    transform:
+        scale(1.06);
+
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(
+            0 0 8px
+            rgba(
+                104,
+                164,
+                255,
+                0.35
+            )
+        );
 }
 
 
@@ -4974,7 +5007,7 @@ de espacio útil.
 }
 
 
-.social-card:not(.is-disabled):hover {
+.social-card:hover {
     transform:
         translateY(-5px);
 
@@ -5004,7 +5037,7 @@ de espacio útil.
 }
 
 
-.social-card:not(.is-disabled):hover::before {
+.social-card:hover::before {
     opacity: 1;
 }
 
@@ -5024,21 +5057,17 @@ de espacio útil.
 }
 
 
+/* Iconos sociales */
+
 .social-icon {
     width: 31px;
     height: 31px;
-
-    color:
-        #c4c9d7;
-
-    transition:
-        color 0.35s ease,
-        transform 0.35s ease,
-        filter 0.35s ease;
 }
 
 
-.social-card:not(.is-disabled):hover
+/* Efecto del icono social */
+
+.social-card:hover
 .social-icon {
     transform:
         scale(1.07);
@@ -5060,6 +5089,8 @@ de espacio útil.
 }
 
 
+/* Flecha */
+
 .social-arrow {
     color:
         #646c80;
@@ -5073,7 +5104,7 @@ de espacio útil.
 }
 
 
-.social-card:not(.is-disabled):hover
+.social-card:hover
 .social-arrow {
     color:
         #ffffff;
@@ -5110,26 +5141,6 @@ de espacio útil.
 
     line-height:
         1.5;
-}
-
-
-/* =========================================================
-   DISABLED SOCIAL PROFILE
-========================================================= */
-
-.social-card.is-disabled {
-    cursor:
-        default;
-
-    opacity:
-        0.64;
-}
-
-
-.social-card.is-disabled
-.social-arrow {
-    opacity:
-        0.35;
 }
 
 
@@ -5190,6 +5201,12 @@ de espacio útil.
     }
 
 
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+
     .tech-marquee-track {
         animation-duration:
             31s;
@@ -5241,6 +5258,12 @@ de espacio útil.
             center;
     }
 
+
+    /*
+    El segundo grupo sólo existe para crear
+    el loop, por eso se oculta cuando no
+    utilizamos animaciones.
+    */
 
     .tech-marquee-group[aria-hidden="true"] {
         display:
