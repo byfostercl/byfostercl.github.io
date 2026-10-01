@@ -4754,7 +4754,7 @@ de espacio útil.
 
 
 /* =========================================================
-   EXTERNAL SVG ICONS
+   SVG ICONS
 ========================================================= */
 
 .brand-icon,
@@ -4763,24 +4763,11 @@ de espacio útil.
 
     flex-shrink: 0;
 
-    background-color: transparent;
-
-    background-image:
-        var(--icon);
-
-    background-repeat:
-        no-repeat;
-
-    background-position:
-        center;
-
-    background-size:
-        contain;
+    object-fit: contain;
 
     /*
-    Los SVG de Simple Icons vienen normalmente
-    en negro. Los convertimos visualmente a blanco
-    sin modificar el archivo original.
+    Simple Icons vienen negros.
+    Los convertimos visualmente a blanco.
     */
 
     filter:
@@ -4788,12 +4775,11 @@ de espacio útil.
         invert(1);
 
     opacity: 0.78;
-}
 
-
-.brand-icon {
-    width: 24px;
-    height: 24px;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
 
