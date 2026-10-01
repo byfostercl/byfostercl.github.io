@@ -5271,3 +5271,158 @@ de espacio útil.
     }
 
 }
+
+/* =========================================================
+   ABOUT PHOTO
+========================================================= */
+
+.about-photo {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius:
+        28px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    box-shadow:
+        0 24px 70px
+        rgba(
+            0,
+            0,
+            0,
+            0.24
+        );
+
+    isolation: isolate;
+}
+
+
+/* Glow integrado con la estética By Foster */
+
+.about-photo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(39, 176, 255, 0.05),
+            transparent 38%,
+            rgba(154, 70, 255, 0.08)
+        );
+}
+
+
+/* Fade inferior para integrar la imagen
+   con el fondo oscuro del sitio */
+
+.about-photo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 28%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(5, 7, 17, 0.18)
+        );
+}
+
+
+.about-photo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio:
+        4 / 5;
+
+    object-fit: cover;
+
+    object-position:
+        center;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        filter 0.8s ease;
+}
+
+
+/* Movimiento muy sutil */
+
+.about-photo:hover img {
+    transform:
+        scale(1.025);
+
+    filter:
+        brightness(1.035);
+}
+
+
+/* =========================================================
+   ABOUT PHOTO — MOBILE
+========================================================= */
+
+@media (
+    max-width: 760px
+) {
+
+    .about-photo {
+        max-width:
+            520px;
+
+        margin-inline:
+            auto;
+
+        border-radius:
+            22px;
+    }
+
+}
