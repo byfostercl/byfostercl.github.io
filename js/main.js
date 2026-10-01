@@ -283,3 +283,183 @@ document.addEventListener("DOMContentLoaded", () => {
     startLoop();
 
 });
+
+/* =========================================================
+   BY FOSTER
+   Interactive services
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const services =
+        document.querySelector(".services-solutions");
+
+
+    if (!services) {
+        return;
+    }
+
+
+    const tabs =
+        Array.from(
+            services.querySelectorAll(
+                ".service-tab"
+            )
+        );
+
+
+    const panels =
+        Array.from(
+            services.querySelectorAll(
+                ".service-solution-panel"
+            )
+        );
+
+
+    if (!tabs.length || !panels.length) {
+        return;
+    }
+
+
+    /*
+    ---------------------------------------------------------
+    ACTIVAR SERVICIO
+    ---------------------------------------------------------
+    */
+
+    function activateService(tab) {
+
+        const target =
+            tab.dataset.service;
+
+
+        tabs.forEach(
+            (item) => {
+
+                const isActive =
+                    item === tab;
+
+
+                item.classList.toggle(
+                    "is-active",
+                    isActive
+                );
+
+
+                item.setAttribute(
+                    "aria-selected",
+                    String(isActive)
+                );
+
+            }
+        );
+
+
+        panels.forEach(
+            (panel) => {
+
+                const isActive =
+                    panel.dataset.panel ===
+                    target;
+
+
+                panel.classList.toggle(
+                    "is-active",
+                    isActive
+                );
+
+
+                panel.hidden =
+                    !isActive;
+
+            }
+        );
+
+    }
+
+
+    /*
+    ---------------------------------------------------------
+    CLICK
+    ---------------------------------------------------------
+    */
+
+    tabs.forEach(
+        (tab) => {
+
+            tab.addEventListener(
+                "click",
+                () => {
+
+                    activateService(
+                        tab
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /*
+    ---------------------------------------------------------
+    TECLADO
+    Flechas izquierda / derecha
+    ---------------------------------------------------------
+    */
+
+    tabs.forEach(
+        (tab, index) => {
+
+            tab.addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (
+                        event.key !==
+                        "ArrowRight" &&
+                        event.key !==
+                        "ArrowLeft"
+                    ) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const direction =
+                        event.key ===
+                        "ArrowRight"
+                            ? 1
+                            : -1;
+
+
+                    const nextIndex =
+                        (
+                            index +
+                            direction +
+                            tabs.length
+                        ) %
+                        tabs.length;
+
+
+                    const nextTab =
+                        tabs[nextIndex];
+
+
+                    nextTab.focus();
+
+
+                    activateService(
+                        nextTab
+                    );
+
+                }
+            );
+
+        }
+    );
+
+});
