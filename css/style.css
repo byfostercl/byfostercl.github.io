@@ -5426,3 +5426,1069 @@ de espacio útil.
     }
 
 }
+
+/* =========================================================
+   SERVICES — INTERACTIVE SOLUTIONS
+========================================================= */
+
+
+/* =========================================================
+   SELECTOR
+========================================================= */
+
+.service-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+}
+
+
+.service-tab {
+    appearance: none;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    padding:
+        18px 18px;
+
+    text-align: left;
+
+    font-family:
+        inherit;
+
+    color:
+        #8d95aa;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.022
+        );
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.service-tab span {
+    color:
+        #626c87;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        0.66rem;
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.08em;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.service-tab:hover {
+    color:
+        #d6daE5;
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(
+            122,
+            142,
+            255,
+            0.18
+        );
+}
+
+
+.service-tab.is-active {
+    color:
+        #ffffff;
+
+    border-color:
+        rgba(
+            103,
+            170,
+            255,
+            0.34
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(60, 124, 255, 0.10),
+            rgba(143, 70, 255, 0.08)
+        );
+
+    box-shadow:
+        inset
+        0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        ),
+
+        0 12px 35px
+        rgba(
+            65,
+            67,
+            180,
+            0.08
+        );
+}
+
+
+.service-tab.is-active span {
+    color:
+        #8baeff;
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.service-panels {
+    position: relative;
+}
+
+
+.service-solution-panel {
+    position: relative;
+
+    min-height:
+        460px;
+
+    grid-template-columns:
+        minmax(0, 1.3fr)
+        minmax(280px, 0.7fr);
+
+    gap: 42px;
+
+    align-items:
+        center;
+
+    padding:
+        clamp(
+            30px,
+            4vw,
+            52px
+        );
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        26px;
+
+    background:
+        radial-gradient(
+            circle at 83% 25%,
+            rgba(74, 87, 255, 0.11),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 95% 85%,
+            rgba(187, 56, 255, 0.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+}
+
+
+.service-solution-panel.is-active {
+    display: grid;
+
+    animation:
+        service-panel-enter
+        0.48s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+.service-solution-panel[hidden] {
+    display: none;
+}
+
+
+@keyframes service-panel-enter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   PANEL COPY
+========================================================= */
+
+.service-panel-copy {
+    position: relative;
+
+    z-index: 3;
+
+    max-width:
+        720px;
+}
+
+
+.service-panel-kicker {
+    margin-bottom:
+        14px;
+
+    color:
+        #8ca9ff;
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.14em;
+}
+
+
+.service-panel-copy h3 {
+    max-width:
+        650px;
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        clamp(
+            1.8rem,
+            3.5vw,
+            3rem
+        );
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -0.045em;
+}
+
+
+.service-panel-description {
+    max-width:
+        670px;
+
+    margin-bottom:
+        25px;
+
+    color:
+        #a2a9bb;
+
+    font-size:
+        0.91rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   KEYWORDS
+========================================================= */
+
+.service-keywords {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom:
+        28px;
+}
+
+
+.service-keywords span {
+    padding:
+        8px 12px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    color:
+        #949caf;
+
+    font-size:
+        0.69rem;
+
+    font-weight:
+        600;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.service-keywords span:hover {
+    color:
+        #dce4f8;
+
+    border-color:
+        rgba(
+            112,
+            158,
+            255,
+            0.20
+        );
+
+    background:
+        rgba(
+            79,
+            104,
+            255,
+            0.05
+        );
+}
+
+
+/* =========================================================
+   INTERNAL CTA
+========================================================= */
+
+.service-panel-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color:
+        #dfe4f2;
+
+    font-size:
+        0.77rem;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+}
+
+
+.service-panel-link span {
+    color:
+        #8ebaff;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.service-panel-link:hover
+span {
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   ASIDE
+========================================================= */
+
+.service-panel-aside {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    padding-left:
+        32px;
+
+    border-left:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.065
+        );
+}
+
+
+/* =========================================================
+   FLOW VISUAL
+========================================================= */
+
+.service-flow {
+    position: relative;
+
+    width: 100%;
+    max-width:
+        330px;
+
+    height:
+        230px;
+
+    margin:
+        0 auto 24px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.065
+        );
+
+    border-radius:
+        22px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(81, 104, 255, 0.11),
+            transparent 45%
+        ),
+        rgba(
+            5,
+            9,
+            22,
+            0.32
+        );
+}
+
+
+.service-flow::before {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        14%;
+
+    border:
+        1px dashed
+        rgba(
+            117,
+            128,
+            255,
+            0.16
+        );
+
+    border-radius:
+        50%;
+
+    animation:
+        service-orbit
+        18s
+        linear
+        infinite;
+}
+
+
+@keyframes service-orbit {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   CORE
+========================================================= */
+
+.service-flow-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 48px;
+    height: 48px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d5f5ff,
+            #53b9ff 20%,
+            #676cff 48%,
+            #a854ef 75%
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(
+            66,
+            187,
+            255,
+            0.48
+        ),
+
+        0 0 45px
+        rgba(
+            128,
+            80,
+            255,
+            0.34
+        );
+
+    animation:
+        service-core-pulse
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes service-core-pulse {
+
+    0%,
+    100% {
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(0.93);
+    }
+
+    50% {
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   FLOW NODES
+========================================================= */
+
+.service-flow-node {
+    position: absolute;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width:
+        74px;
+
+    min-height:
+        34px;
+
+    padding:
+        7px 10px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(
+            18,
+            23,
+            46,
+            0.90
+        );
+
+    color:
+        #b6bdcf;
+
+    font-size:
+        0.63rem;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
+
+    animation:
+        service-node-float
+        6s
+        ease-in-out
+        infinite;
+}
+
+
+.service-flow-node.node-a {
+    left:
+        9%;
+
+    top:
+        16%;
+}
+
+
+.service-flow-node.node-b {
+    right:
+        8%;
+
+    top:
+        24%;
+
+    animation-delay:
+        -2s;
+}
+
+
+.service-flow-node.node-c {
+    left:
+        34%;
+
+    bottom:
+        10%;
+
+    animation-delay:
+        -4s;
+}
+
+
+@keyframes service-node-float {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+
+}
+
+
+/* =========================================================
+   FLOW CONNECTIONS
+========================================================= */
+
+.service-flow-link {
+    position: absolute;
+
+    z-index: 1;
+
+    height: 1px;
+
+    transform-origin:
+        left center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(65, 203, 255, 0.12),
+            rgba(111, 121, 255, 0.72),
+            rgba(186, 73, 255, 0.15)
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(
+            86,
+            127,
+            255,
+            0.20
+        );
+}
+
+
+.service-flow-link.link-a {
+    width:
+        112px;
+
+    left:
+        26%;
+
+    top:
+        35%;
+
+    transform:
+        rotate(25deg);
+}
+
+
+.service-flow-link.link-b {
+    width:
+        105px;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        rotate(-28deg);
+}
+
+
+.service-flow-link.link-c {
+    width:
+        85px;
+
+    left:
+        46%;
+
+    top:
+        54%;
+
+    transform:
+        rotate(72deg);
+}
+
+
+/* =========================================================
+   IDEAL WHEN
+========================================================= */
+
+.service-fit {
+    max-width:
+        330px;
+
+    margin-inline:
+        auto;
+
+    padding:
+        16px 18px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.018
+        );
+}
+
+
+.service-fit > span {
+    display: block;
+
+    margin-bottom:
+        7px;
+
+    color:
+        #6f7d9d;
+
+    font-size:
+        0.59rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.13em;
+}
+
+
+.service-fit p {
+    margin:
+        0;
+
+    color:
+        #8d95a9;
+
+    font-size:
+        0.71rem;
+
+    line-height:
+        1.55;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 1050px
+) {
+
+    .service-selector {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+    }
+
+
+    .service-solution-panel {
+        grid-template-columns:
+            1fr;
+
+        min-height:
+            0;
+    }
+
+
+    .service-panel-aside {
+        padding-left:
+            0;
+
+        padding-top:
+            30px;
+
+        border-left:
+            0;
+
+        border-top:
+            1px solid
+            rgba(
+                255,
+                255,
+                255,
+                0.065
+            );
+    }
+
+
+    .service-flow {
+        max-width:
+            440px;
+    }
+
+
+    .service-fit {
+        max-width:
+            440px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    .service-selector {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            8px;
+    }
+
+
+    .service-tab {
+        flex-direction:
+            row;
+
+        align-items:
+            center;
+
+        gap:
+            12px;
+
+        padding:
+            14px 15px;
+    }
+
+
+    .service-solution-panel {
+        gap:
+            30px;
+
+        padding:
+            25px 20px;
+
+        border-radius:
+            21px;
+    }
+
+
+    .service-panel-copy h3 {
+        font-size:
+            1.75rem;
+    }
+
+
+    .service-panel-description {
+        font-size:
+            0.84rem;
+    }
+
+
+    .service-flow {
+        height:
+            210px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .service-solution-panel.is-active,
+    .service-flow::before,
+    .service-flow-core,
+    .service-flow-node {
+        animation:
+            none !important;
+    }
+
+}
